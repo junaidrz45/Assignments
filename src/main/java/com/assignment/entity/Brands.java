@@ -20,5 +20,19 @@ public class Brands implements Serializable {
     @Column(name = "name")
     private String name;
 
+    public long getBrandid() {
+        return brandid;
+    }
 
+    public void setBrandid(long brandid) {
+        this.brandid = brandid;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

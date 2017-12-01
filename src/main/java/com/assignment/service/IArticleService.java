@@ -6,8 +6,8 @@ import com.assignment.entity.Article;
 
 public interface IArticleService {
      List<Article> getAllArticles();
-     Article getArticleById(int articleId);
-     boolean addArticle(Article article);
-     void updateArticle(Article article);
-     void deleteArticle(int articleId);
+     Article getArticleById(int brandsId);
+     boolean addArticle(Article brands);
+     void updateArticle(Article brands);
+     void deleteArticle(int brandsId);
 }

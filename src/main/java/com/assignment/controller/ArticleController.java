@@ -23,6 +23,7 @@ import com.assignment.service.IArticleService;
 public class ArticleController {
 	@Autowired
 	private IArticleService articleService;
+
 	@GetMapping("article/{id}")
 	public ResponseEntity<Article> getArticleById(@PathVariable("id") Integer id) {
 		Article article = articleService.getArticleById(id);
