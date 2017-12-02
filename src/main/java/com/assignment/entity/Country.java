@@ -19,13 +19,11 @@ public class Country implements Serializable {
     @Column(name="name")
     private String name;
 
-
-
-    public long getCountry() {
+    public long getCountryId(){
         return this.countryId;
     }
 
-    public void setCountry(long countryid) {
+    public void setCountryId(long countryid) {
         this.countryId = countryid;
     }
 
