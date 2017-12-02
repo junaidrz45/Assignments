@@ -2,6 +2,7 @@ package com.assignment.client;
 
 import java.net.URI;
 
+import com.assignment.entity.Items;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -9,71 +10,49 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
-import com.assignment.entity.Article;
+import com.assignment.entity.WareHouse;
 
 public class RestClientUtil {
-    public void getArticleByIdDemo() {
+    public void getWareHousebyIDDemo() {
     	HttpHeaders headers = new HttpHeaders();
     	headers.setContentType(MediaType.APPLICATION_JSON);
         RestTemplate restTemplate = new RestTemplate();
-	    String url = "http://localhost:8080/user/article/{id}";
+	    String url = "http://localhost:8080/wareHouse/getbyId/{id}";
         HttpEntity<String> requestEntity = new HttpEntity<String>(headers);
-        ResponseEntity<Article> responseEntity = restTemplate.exchange(url, HttpMethod.GET, requestEntity, Article.class, 1);
-        Article article = responseEntity.getBody();
-        System.out.println("Id:"+article.getArticleId()+", Title:"+article.getTitle()
-                 +", Category:"+article.getCategory());      
+        ResponseEntity<WareHouse> responseEntity = restTemplate.exchange(url, HttpMethod.GET, requestEntity, WareHouse.class, 1);
+        WareHouse wareHouse = responseEntity.getBody();
+        System.out.println("Id:"+wareHouse.getWarehouseid()+", Name:"+wareHouse.getName()
+                 +", CountryName:"+wareHouse.getCountry().getName());
     }
-	public void getAllArticlesDemo() {
+	public void getAllProductsDemo() {
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);
         RestTemplate restTemplate = new RestTemplate();
-	    String url = "http://localhost:8080/user/articles";
+	    String url = "http://localhost:8080/product/getall";
         HttpEntity<String> requestEntity = new HttpEntity<String>(headers);
-        ResponseEntity<Article[]> responseEntity = restTemplate.exchange(url, HttpMethod.GET, requestEntity, Article[].class);
-        Article[] articles = responseEntity.getBody();
-        for(Article article : articles) {
-              System.out.println("Id:"+article.getArticleId()+", Title:"+article.getTitle()
-                      +", Category: "+article.getCategory());
+        ResponseEntity<Items[]> responseEntity = restTemplate.exchange(url, HttpMethod.GET, requestEntity, Items[].class);
+        Items[] itmes = responseEntity.getBody();
+        for(Items item : itmes) {
+              System.out.println("Id:"+item.getItemid()+", Name:"+item.getName()
+                      +", WareHouseName: "+item.getWareHouse().getName());
         }
     }
-    public void addArticleDemo() {
+    public void addWareHouseDemo() {
     	HttpHeaders headers = new HttpHeaders();
     	headers.setContentType(MediaType.APPLICATION_JSON);
         RestTemplate restTemplate = new RestTemplate();
-	    String url = "http://localhost:8080/user/article";
-	    Article objArticle = new Article();
-	    objArticle.setTitle("Spring REST Security using Hibernate");
-	    objArticle.setCategory("Spring");
-        HttpEntity<Article> requestEntity = new HttpEntity<Article>(objArticle, headers);
+	    String url = "http://localhost:8080/wareHouse/add";
+	    WareHouse objwaherehouse = new WareHouse();
+        objwaherehouse.setName("TestWareHouse");
+	    HttpEntity<WareHouse> requestEntity = new HttpEntity<WareHouse>(objwaherehouse, headers);
         URI uri = restTemplate.postForLocation(url, requestEntity);
         System.out.println(uri.getPath());    	
     }
-    public void updateArticleDemo() {
-    	HttpHeaders headers = new HttpHeaders();
-    	headers.setContentType(MediaType.APPLICATION_JSON);
-        RestTemplate restTemplate = new RestTemplate();
-	    String url = "http://localhost:8080/user/article";
-	    Article objArticle = new Article();
-	    objArticle.setArticleId(1);
-	    objArticle.setTitle("Update:Java Concurrency");
-	    objArticle.setCategory("Java");
-        HttpEntity<Article> requestEntity = new HttpEntity<Article>(objArticle, headers);
-        restTemplate.put(url, requestEntity);
-    }
-    public void deleteArticleDemo() {
-    	HttpHeaders headers = new HttpHeaders();
-    	headers.setContentType(MediaType.APPLICATION_JSON);
-        RestTemplate restTemplate = new RestTemplate();
-	    String url = "http://localhost:8080/user/article/{id}";
-        HttpEntity<Article> requestEntity = new HttpEntity<Article>(headers);
-        restTemplate.exchange(url, HttpMethod.DELETE, requestEntity, Void.class, 4);        
-    }
+
     public static void main(String args[]) {
     	RestClientUtil util = new RestClientUtil();
-        //util.getArticleByIdDemo();
-    	util.getAllArticlesDemo();
-    	//util.addArticleDemo();
-    	//util.updateArticleDemo();
-    	//util.deleteArticleDemo();
+        util.getWareHousebyIDDemo();
+        util.getAllProductsDemo();
+        util.addWareHouseDemo();
     }    
 }
