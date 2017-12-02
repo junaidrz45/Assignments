@@ -51,7 +51,9 @@ public class WareHouseDAO implements IWareHouseDAO {
     }
 
     @Override
-    public boolean wareHousesExists(String title, String category) {
-        return false;
+    public boolean wareHousesExists(String name) {
+        String hql = "FROM WareHouse as wareHouse WHERE wareHouse.name = ? ";
+        int count = entityManager.createQuery(hql).setParameter(1, name).getResultList().size();
+        return count > 0 ? true : false;
     }
 }

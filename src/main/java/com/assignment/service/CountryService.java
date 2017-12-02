@@ -3,12 +3,15 @@ package com.assignment.service;
 import com.assignment.dao.ICountryDAO;
 import com.assignment.entity.Country;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 /**
  * Created by junaid on 02/12/2017.
  */
+
+@Service
 public class CountryService implements ICountryService {
 
     @Autowired

@@ -18,26 +18,26 @@ import java.util.List;
  */
 
 @Controller
-@RequestMapping("product")
+@RequestMapping("brand")
 public class BrandController {
 
     @Autowired
     private IBrandService brandService;
 
 
-    @GetMapping("brand/{id}")
+    @GetMapping("get/{id}")
     public ResponseEntity<Brands> getBrandsById(@PathVariable("id") long id) {
         Brands brands = brandService.getBrandsById(id);
         return new ResponseEntity<Brands>(brands, HttpStatus.OK);
     }
 
-    @GetMapping("brand")
+    @GetMapping("getall")
     public ResponseEntity<List<Brands>> getAllBrands(){
-        List<Brands> brandsList = brandService.getAllBrandss();
+        List<Brands> brandsList = brandService.getAllBrands();
         return new ResponseEntity<List<Brands>>(brandsList ,HttpStatus.OK);
     }
 
-    @PostMapping("brand")
+    @PostMapping("add")
     public ResponseEntity<Void> addArticle(@RequestBody Brands brand, UriComponentsBuilder builder) {
         boolean flag = brandService.addBrands(brand);
         HttpHeaders headers = new HttpHeaders();
@@ -45,13 +45,13 @@ public class BrandController {
         return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
     }
 
-    @PutMapping("brand")
+    @PutMapping("update")
     public ResponseEntity<Brands> updateArticle(@RequestBody Brands brand) {
         brandService.updateBrands(brand);
         return new ResponseEntity<Brands>(brand, HttpStatus.OK);
     }
 
-    @DeleteMapping("brand/{id}")
+    @DeleteMapping("delete/{id}")
     public ResponseEntity<Void> deleteArticle(@PathVariable("id") long id) {
         brandService.deleteBrands(id);
         return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);

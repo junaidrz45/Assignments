@@ -40,6 +40,7 @@ public class ArticleDAO implements IArticleDAO {
 	public void deleteArticle(int articleId) {
 		entityManager.remove(getArticleById(articleId));
 	}
+
 	@Override
 	public boolean articleExists(String title, String category) {
 		String hql = "FROM Article as atcl WHERE atcl.title = ? and atcl.category = ?";

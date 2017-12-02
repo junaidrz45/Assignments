@@ -2,6 +2,8 @@ package com.assignment.dao;
 
 import com.assignment.entity.Brands;
 import com.assignment.entity.Country;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -10,6 +12,9 @@ import java.util.List;
 /**
  * Created by junaid on 01/12/2017.
  */
+
+@Transactional
+@Repository
 public class CountryDAO implements ICountryDAO {
 
     @PersistenceContext

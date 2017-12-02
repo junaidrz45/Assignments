@@ -14,5 +14,5 @@ public interface IWareHouseDAO {
     void addWareHouse(WareHouse wareHouse);
     void updateWareHouse(WareHouse wareHouse);
     void deleteWareHouse(long wareHouseId);
-    boolean wareHousesExists(String title, String category);
+    boolean wareHousesExists(String name);
 }

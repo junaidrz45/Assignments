@@ -11,9 +11,10 @@ import java.util.List;
 
 public interface IItemsDAO {
 
-    List<Items> getAllItemss();
+    List<Items> getAllItems();
     Items getItemsById(long ItemsId);
     void addItems(Items items);
     void updateItems(Items items);
     void deleteItems(long itemsId);
+    boolean itemExists(String name);
 }

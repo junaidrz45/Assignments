@@ -10,10 +10,10 @@ import java.util.List;
 
 public interface IBrandService {
 
-    List<Brands> getAllBrandss();
-    Brands getBrandsById(long articleId);
-    boolean addBrands(Brands article);
-    void updateBrands(Brands article);
-    void deleteBrands(long articleId);
+    List<Brands> getAllBrands();
+    Brands getBrandsById(long brandId);
+    boolean addBrands(Brands brand);
+    void updateBrands(Brands brand);
+    void deleteBrands(long brandId);
 
 }

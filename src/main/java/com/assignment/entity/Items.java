@@ -26,8 +26,11 @@ public class Items implements Serializable {
     @Column(name="size")
     private String size;
 
-    @Column(name = "availability")
-    private String availabilty;
+    @Column(name = "AvailableQuantity")
+    private long availableQuantity;
+
+    @Column(name = "InTransitQuantity")
+    private long inTransitQuantity;
 
     @Column(name = "MOQ")
     private long MOQ;
@@ -67,12 +70,20 @@ public class Items implements Serializable {
         this.size = size;
     }
 
-    public String getAvailabilty() {
-        return availabilty;
+    public long getAvailableQuantity() {
+        return availableQuantity;
     }
 
-    public void setAvailabilty(String availabilty) {
-        this.availabilty = availabilty;
+    public void setAvailableQuantity(long availableQuantity) {
+        this.availableQuantity = availableQuantity;
+    }
+
+    public long getInTransitQuantity() {
+        return inTransitQuantity;
+    }
+
+    public void setInTransitQuantity(long inTransitQuantity) {
+        this.inTransitQuantity = inTransitQuantity;
     }
 
     public long getMOQ() {

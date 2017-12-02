@@ -17,13 +17,13 @@ public class BrandService implements IBrandService {
     IBrandsDAO brandsDAO;
 
     @Override
-    public List<Brands> getAllBrandss() {
+    public List<Brands> getAllBrands() {
         return brandsDAO.getAllBrands();
     }
 
     @Override
-    public Brands getBrandsById(long articleId) {
-        return brandsDAO.getBrandsById(articleId);
+    public Brands getBrandsById(long brandId) {
+        return brandsDAO.getBrandsById(brandId);
     }
 
     @Override

@@ -20,7 +20,7 @@ public class ItemsDAO implements IItemsDAO {
     private EntityManager entityManager;
 
     @Override
-    public List<Items> getAllItemss() {
+    public List<Items> getAllItems() {
         String hql = "FROM Items as item ORDER BY item.itemid";
         return (List<Items>) entityManager.createQuery(hql).getResultList();
 
@@ -39,7 +39,8 @@ public class ItemsDAO implements IItemsDAO {
     @Override
     public void updateItems(Items items) {
         Items item = getItemsById(items.getItemid());
-        item.setAvailabilty(items.getAvailabilty());
+        item.setAvailableQuantity(items.getAvailableQuantity());
+        item.setInTransitQuantity(items.getInTransitQuantity());
         item.setItemTypes(items.getItemTypes());
         item.setMOQ(items.getMOQ());
         item.setName(items.getName());
@@ -52,5 +53,12 @@ public class ItemsDAO implements IItemsDAO {
     @Override
     public void deleteItems(long itemsId) {
         entityManager.remove(getItemsById(itemsId));
+    }
+
+    @Override
+    public boolean itemExists(String name) {
+        String hql = "FROM Items as item WHERE item.name = ? ";
+        int count = entityManager.createQuery(hql).setParameter(1, name).getResultList().size();
+        return count > 0 ? true : false;
     }
 }
