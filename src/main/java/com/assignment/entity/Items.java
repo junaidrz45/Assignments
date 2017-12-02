@@ -19,7 +19,7 @@ public class Items implements Serializable {
     @Column(name = "names")
     private String name;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "itemtype_id")
     private ItemTypes itemTypes;
 

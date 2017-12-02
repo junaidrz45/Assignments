@@ -3,6 +3,7 @@ package com.assignment.service;
 import com.assignment.dao.IItemsDAO;
 import com.assignment.entity.Items;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -10,6 +11,7 @@ import java.util.List;
  * Created by junaid on 02/12/2017.
  */
 
+@Service
 public class ItemService implements IitemService{
 
     @Autowired
@@ -17,7 +19,12 @@ public class ItemService implements IitemService{
 
     @Override
     public List<Items> getAllItems() {
-        return itemsDAO.getAllItemss();
+        return itemsDAO.getAllItems();
+    }
+
+    @Override
+    public List<Items> getAllItemsByCountry(String countryName) {
+        return null;
     }
 
     @Override
@@ -27,17 +34,14 @@ public class ItemService implements IitemService{
 
     @Override
     public boolean addItems(Items item) {
-        if(itemsDAO.itemExists(item.getName())){
-            return false;
-        }else{
-            itemsDAO.addItems(item);
-            return true;
-        }
+        itemsDAO.addItems(item);
+        return true;
+
     }
 
     @Override
     public void updateItems(Items item) {
-        itemsDAO.addItems(item);
+        itemsDAO.updateItems(item);
     }
 
     @Override

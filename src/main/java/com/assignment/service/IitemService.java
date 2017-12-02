@@ -10,6 +10,7 @@ import java.util.List;
 public interface IitemService {
 
     List<Items> getAllItems();
+    List<Items> getAllItemsByCountry(String countryName);
     Items getItemsById(long itemId);
     boolean addItems(Items item);
     void updateItems(Items item);

@@ -23,4 +23,27 @@ public class ItemTypes implements Serializable {
     @Column(name = "sizes")
     private String sizes;
 
+    public long getItemtypeid() {
+        return itemtypeid;
+    }
+
+    public void setItemtypeid(long itemtypeid) {
+        this.itemtypeid = itemtypeid;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSizes() {
+        return sizes;
+    }
+
+    public void setSizes(String sizes) {
+        this.sizes = sizes;
+    }
 }
