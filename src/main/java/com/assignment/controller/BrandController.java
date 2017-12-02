@@ -1,6 +1,6 @@
 package com.assignment.controller;
 
-import com.assignment.entity.Article;
+
 import com.assignment.entity.Brands;
 import com.assignment.service.IBrandService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +38,7 @@ public class BrandController {
     }
 
     @PostMapping("add")
-    public ResponseEntity<Void> addArticle(@RequestBody Brands brand, UriComponentsBuilder builder) {
+    public ResponseEntity<Void> addBrand(@RequestBody Brands brand, UriComponentsBuilder builder) {
         boolean flag = brandService.addBrands(brand);
         HttpHeaders headers = new HttpHeaders();
         headers.setLocation(builder.path("/brand/{id}").buildAndExpand(brand.getBrandid()).toUri());
@@ -46,13 +46,13 @@ public class BrandController {
     }
 
     @PutMapping("update")
-    public ResponseEntity<Brands> updateArticle(@RequestBody Brands brand) {
+    public ResponseEntity<Brands> updateBrand(@RequestBody Brands brand) {
         brandService.updateBrands(brand);
         return new ResponseEntity<Brands>(brand, HttpStatus.OK);
     }
 
     @DeleteMapping("delete/{id}")
-    public ResponseEntity<Void> deleteArticle(@PathVariable("id") long id) {
+    public ResponseEntity<Void> deleteBrand(@PathVariable("id") long id) {
         brandService.deleteBrands(id);
         return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
     }

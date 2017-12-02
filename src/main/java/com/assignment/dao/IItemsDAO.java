@@ -1,6 +1,5 @@
 package com.assignment.dao;
 
-import com.assignment.entity.Article;
 import com.assignment.entity.Items;
 
 import java.util.List;
