@@ -17,6 +17,8 @@ USE `test`;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+
+
 --
 -- Table structure for table `brands`
 --
@@ -88,7 +90,7 @@ CREATE TABLE `items` (
   KEY `FKjr8lxh8gkj34fmt0evfh0o6xt` (`warehouse_id`),
   CONSTRAINT `FKayhaxyajjp5yaj7jwq9x08v94` FOREIGN KEY (`itemtype_id`) REFERENCES `items_types` (`itemtype_id`),
   CONSTRAINT `FKjr8lxh8gkj34fmt0evfh0o6xt` FOREIGN KEY (`warehouse_id`) REFERENCES `warehouse` (`warehouse_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -97,7 +99,7 @@ CREATE TABLE `items` (
 
 LOCK TABLES `items` WRITE;
 /*!40000 ALTER TABLE `items` DISABLE KEYS */;
-INSERT INTO `items` VALUES (1,50,6,15,8,5,'ProductA','10ml',1,1),(2,1000,12,NULL,900,800,'ProductA','20ml',1,2);
+INSERT INTO `items` VALUES (1,50,6,15,8,5,'ProductA','10ml',1,1),(2,1000,12,100,900,800,'ProductA','20ml',1,2),(3,1000,12,100,900,800,'ProductA','20ml',1,3),(9,100,12,100,200,6,'ProductA','10ml',1,6);
 /*!40000 ALTER TABLE `items` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -165,4 +167,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-12-02 15:27:21
+-- Dump completed on 2017-12-02 20:04:13
