@@ -1,7 +1,6 @@
 package com.assignment.controller;
 
 import com.assignment.entity.Items;
-import com.assignment.entity.WareHouse;
 import com.assignment.service.IitemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -16,6 +15,7 @@ import java.util.List;
 /**
  * Created by junaid on 02/12/2017.
  */
+
 @Controller
 @RequestMapping("product")
 public class ItemController {

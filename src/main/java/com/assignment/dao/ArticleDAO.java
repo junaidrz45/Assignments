@@ -1,13 +1,12 @@
 package com.assignment.dao;
-import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-
+import com.assignment.entity.Article;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.assignment.entity.Article;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import java.util.List;
 @Transactional
 @Repository
 public class ArticleDAO implements IArticleDAO {

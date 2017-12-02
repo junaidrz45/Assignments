@@ -1,8 +1,6 @@
 package com.assignment.controller;
 
-import com.assignment.entity.Brands;
 import com.assignment.entity.WareHouse;
-import com.assignment.service.IBrandService;
 import com.assignment.service.IWareHouseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
