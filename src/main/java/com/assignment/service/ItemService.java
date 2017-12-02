@@ -24,7 +24,7 @@ public class ItemService implements IitemService{
 
     @Override
     public List<Items> getAllItemsByCountry(String countryName) {
-        return null;
+        return itemsDAO.getAllItemsByCountry(countryName);
     }
 
     @Override

@@ -29,6 +29,12 @@ public class ItemController {
         return new ResponseEntity<Items>(item, HttpStatus.OK);
     }
 
+    @GetMapping("getbyCountryname/{countryname}")
+    public ResponseEntity<List<Items>> getItemsByCountryName(@PathVariable("countryname") String countryName) {
+        List<Items> itemList = itemService.getAllItemsByCountry(countryName);
+        return new ResponseEntity<List<Items>>(itemList ,HttpStatus.OK);
+    }
+
     @GetMapping("getall")
     public ResponseEntity<List<Items>> getAllItems(){
         List<Items> itemList = itemService.getAllItems();

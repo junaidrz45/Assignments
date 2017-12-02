@@ -27,6 +27,12 @@ public class ItemsDAO implements IItemsDAO {
     }
 
     @Override
+    public List<Items> getAllItemsByCountry(String countryName) {
+        String hql = "FROM Items as item WHERE item.wareHouse.country.name= ? ";
+        return (List<Items>) entityManager.createQuery(hql).setParameter(1, countryName).getResultList();
+    }
+
+    @Override
     public Items getItemsById(long ItemsId) {
         return entityManager.find(Items.class,ItemsId);
     }
@@ -61,4 +67,6 @@ public class ItemsDAO implements IItemsDAO {
         int count = entityManager.createQuery(hql).setParameter(1, name).getResultList().size();
         return count > 0 ? true : false;
     }
+
+
 }

@@ -12,6 +12,7 @@ import java.util.List;
 public interface IItemsDAO {
 
     List<Items> getAllItems();
+    List<Items> getAllItemsByCountry(String countryName);
     Items getItemsById(long ItemsId);
     void addItems(Items items);
     void updateItems(Items items);
